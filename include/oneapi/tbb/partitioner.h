@@ -550,7 +550,7 @@ public:
     }
     void spawn_task(task& t, task_group_context& ctx) {
         if (my_divisor) {
-            if (!my_array[my_head]) {
+            if (my_array[my_head] == no_slot) {
                 // TODO: consider new ideas with my_array for both affinity and static partitioner's, then code reuse
                 spawn(t, ctx, slot_id(my_head / factor));
             } else {
